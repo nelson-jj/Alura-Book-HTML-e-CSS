@@ -1,0 +1,154 @@
+.cabecalho__menu-hamburguer{
+    width: 24px;
+    height: 24px;
+    background-image: url("../img/Menu.svg");
+    display: inline-block;                              /*Permite mexer na altura e largura*/
+    background-repeat: no-repeat;                       /*Evita a img a repetir quando passa do tamanho dela*/
+    background-position: center;                        /*Centraliza as img*/
+}
+
+.cabecalho{
+    background-color: var(--branco);
+    display: flex;
+    justify-content: space-between;                     /*Para separar os elementos(div)*/
+    align-items: center;
+    position: relative;                                 /*Libera a opção top-left-bottom-right*/
+}
+
+.container{
+    display: flex;
+    align-items: center;
+}
+
+.container__imagem{
+    padding: 1em;
+}
+
+/*-Fazendo a Menu aparecer e sumir + coloração e fontes-*/
+.lista-menu{
+    display: none;                                      /*Esconde o elemento*/
+    position: absolute;                                 /*permite movimentar o elemento de acordo com um que veio antes*/
+    top: 100%;
+    width: 60vw;
+}
+
+.container__botao:checked ~ .lista-menu{                /*Detecta o preenchimento do checkbox (~ -> COMBINADOR CSS)*/
+    display: block;
+}
+
+.lista-menu__titulo, .lista-menu__item{
+    padding: 1em;
+    background-color: var(--branco);
+}
+
+.lista-menu__titulo{
+    color: var(--laranja);
+    font-weight: 700;
+}
+
+.lista-menu__link{                                      /*LISTA diferente de LINK*/
+    background: var(--azul-escuro);
+    -webkit-background-clip: text;                      /*ajuda a funcionar em outros navegadores*/
+    -webkit-text-fill-color: transparent;
+    background-clip: text;                              /*prende a cor no texto*/
+    text-transform: uppercase;  
+}
+
+.container__botao:checked ~ .container__menu > .cabecalho__menu-hamburguer{         /* '~' e '>' são COMBINADORES*/
+    background-image: url("/img/MenuClick.svg");        /*trocando a imagem do menu*/
+}
+
+.container__botao:checked ~.container__menu{
+    background: var(--azul-escuro);
+}
+
+.container__botao{
+    display: none;                                      /*sumindo com o botãozinho (Menu pronto)*/
+}
+
+.container__titulo, .opcoes, .container__texto{         /*Tudo aqui vai sumir no layout mobile*/
+    display: none;
+}
+
+@media screen and (min-width: 1024px){                  /*media type = tela. Min -> MOBILE FIRST Max -> inicial desktop*/
+
+    .container__titulo, .container__titulo--negrito{
+        font-family: var(--fonte-secundaria);
+        font-size: 30px;
+    }
+
+    .container__titulo{
+        font-weight: 400;
+        display: block;
+    }
+
+    .container__titulo--negrito{
+        font-weight: 700;
+    }
+
+    .opcoes{
+        display: flex;
+    }
+
+    .opcoes__item{
+        padding: 0 1em;
+        text-transform: uppercase;
+    }
+
+    .opcoes__link{
+        text-decoration: none;
+        color: var(--preto);
+    }
+
+    .container__imagem--transparente, .cabecalho__menu-hamburguer, .opcoes__botao, .container__texto{
+        display: none;                                  /*Sumir com as class que eu preciso*/ 
+    }
+
+    .opcoes__botao:checked~.lista-menu{                 /*Fazendo aparecer o menuzinho*/         
+        display: block;
+        width: auto;
+    }
+
+    .opcoes__botao:checked ~.opcoes__menu > .opcoes__item{
+        background: var(--azul-escuro);
+        color: var(--branco);
+    }
+
+    .opcoes__item{
+        padding: 2em 1em;
+    }
+
+    .lista-menu__item:hover{
+        background: var(--azul-escuro);
+    }
+
+    .lista-menu__item:hover > .lista-menu__link{        /*'>' = mais - busca uma classa dentro da outra?*/
+        -webkit-text-fill-color: var(--branco);         /*Mudando a cor assim por causa do background degrade*/
+        text-decoration: none;
+    }
+}
+
+@media screen and (min-width: 1728px){
+
+    .container__link{
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+    }
+    
+    .container__texto{
+        display: flex;
+        color: var(--preto);
+        font-size: 20;
+        /*padding-right: 2em; - vou colocar isso em todo o header*/
+    }
+
+    .opcoes{
+       margin-right: auto;                              /*Vai preencher toda a direita e jogar as coisas pra esquerda*/
+       padding: 0 2em;
+    }
+
+    .cabecalho{                                         /*Preencher todo o botão*/
+        padding: 0 2em;
+    }
+}

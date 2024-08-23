@@ -1,0 +1,176 @@
+.carrossel__titulo{
+    color: var(--laranja);
+    background-color: var(--branco);
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 1em 0 0.5em 0; 
+}
+
+.swiper-slide img{  
+    width: 100%;                                        /*cada imagem aparecer inteira*/
+}
+
+.swiper-button-prev, .swiper-button-next{           
+    display: none;                                      /*Sumindo com as setinhas*/
+}
+
+.swiper-pagination{
+    position: initial;                                  /*colocando as bolinhas para cima do carrossel*/
+    margin: 0.6em 0;
+}
+
+.card__descricao{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.4em;
+}
+
+.card__botoes{
+    display: flex;
+    justify-content: space-between;
+}
+
+.botoes{
+    display: flex;
+}
+
+.card{                                                  /*Todo o quadrado onde estão os paragrafos e as imagens*/
+    background: var(--branco);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;                                /*Todas essas informações "estão no figma" - copei a mão pq não achei*/
+    margin: 1em;
+    padding: 1em;
+}
+
+.descricao__titulo{
+    color: var(--laranja);
+    font-weight: 700;
+    line-height: 1.4em;
+}
+
+.descricao__titulo-livro{
+    color: var(--azul);
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0.5em 0;
+    line-height: 1.4em;
+}
+
+.descricao__texto{
+    font-size: 14px;
+    line-height: 1.4em;
+}
+
+.descricao__imagem{                                     /*A imagem não ficou 100% como eu queria*/
+    width: 50%;
+    display: flex;
+    padding: 7px 0 20px 5px;
+    align-items: flex-end;
+}
+
+.botoes__itens{
+    margin: 0 0.6em;
+}
+
+.botoes__ancora{
+    background-color: var(--laranja);
+    padding: 1em 2.2em;
+    color: var(--branco);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.botoes__ancora:hover{
+    color: var(--azul);
+}
+
+.descricao{
+    margin-right: 0.5em;
+}
+
+@media screen and (min-width: 1024px){
+
+    .carrossel__titulo{
+        font-size: 26px;
+    }
+
+    .swiper-pagination{
+        margin: 2em 0 3em 0;
+    }
+
+    .swiper{
+        width: 60%;
+    }
+
+    .swiper-button-prev, .swiper-button-next{               /*Colocando os botoes para aparecer*/
+        display: block;                                     /*Estão diferentes do Figma*/
+        top: 60%;                                           /*Eles não funcionam clicando*/
+    }
+
+    .card{
+        width: 45%;
+        margin: 2em auto;
+    }
+
+    .descricao__imagem{
+        width: 30%;
+        display: flex;
+        margin: 7px 0 20px 10px;
+        align-items: flex-end;
+    }
+
+    .botoes__ancora{
+        background-color: var(--laranja);
+        padding: 1em 1.88em;
+        color: var(--branco);
+        font-weight: 700;
+        text-decoration: none;
+    }
+
+    .descricao{
+        margin-right: 2em;
+    }
+
+}
+
+@media screen and (min-width: 1728px){
+
+    .descricao__titulo{
+        line-height: 1.5em;
+        font-size: 32px;
+    }
+
+    .carrossel__container{
+        display: flex;
+        margin: 0 20vw 3em 20vw;                            /*VW é em porcentagem do tamanho da tela*/
+        align-items: center;
+    }
+    
+    .carrossel__titulo{
+        font-size: 32px;
+        padding: 1.5em 0 0.5em 0; 
+    }
+
+    .descricao{
+        margin-right: 2em;
+    }
+
+    .descricao__texto{
+        font-size: 16px;
+    }
+
+    .swiper{
+        width: 60%;
+    }
+
+    .swiper-pagination{
+        margin: 1em 0 ;
+    }
+
+    .card{
+        width: 55%;
+        margin-left: 3em;
+    }
+}
